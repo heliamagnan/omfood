@@ -1,0 +1,264 @@
+//--------------- Animation check vert -----------------
+.menu__card-choix {
+    display: flex;
+    width: 70px;
+    height: 100%;
+    position: absolute;
+    right: -60px;
+    top: 0;
+    background-color: #99E2D0;
+}
+
+.menu__card-choix i {
+    position: absolute;
+    transform: scale(1.3);
+    right: 45%;
+    top: 37%;
+    color: white;
+}
+
+.article__menu {
+    overflow: hidden;
+    position: relative;
+}
+
+.article__menu:hover .menu__card-choix {
+    animation: validation 250ms ease-in forwards;
+}
+
+.article__menu:hover .menu__card-prix {
+    animation: prix 250ms ease-in forwards;
+}
+
+.article__menu:hover .description {
+    transition: width 250ms ease-in;
+    width: 60%;
+}
+
+.article__menu:not(:hover) .menu__card-choix {
+    animation: validation-reverse 250ms 200ms ease-in backwards;
+}
+
+.article__menu:not(:hover) .menu__card-prix {
+    animation: prix-reverse 250ms 200ms ease-in backwards;
+}
+
+.article__menu:not(:hover) .description {
+    transition: width 250ms 200ms ease-in;
+    width: 100%;
+}
+
+@keyframes validation {
+    from {
+        transform: translateX(0);
+        transform-origin: right;
+    }
+    to {
+        transform: translateX(-100%);
+        transform-origin: right;
+    }
+}
+
+@keyframes validation-reverse {
+    from {
+        transform: translateX(-100%);
+        transform-origin: right;
+    }
+    to {
+        transform: translateX(0);
+        transform-origin: right;
+    }
+}
+
+@keyframes prix {
+    from {
+        transform: translateX(0);
+        transform-origin: right;
+    }
+    to {
+        transform: translateX(-210%);
+        transform-origin: right;
+    }
+}
+
+@keyframes prix-reverse {
+    from {
+        transform: translateX(-210%);
+        transform-origin: right;
+    }
+    to {
+        transform: translateX(0);
+        transform-origin: right;
+    }
+}
+
+//-------------- Spinner--------------------------
+.spinner {
+    height: 100%;
+    background: white;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    -webkit-animation: spinner 2s linear;
+    animation: spinner 2s linear;
+    visibility: hidden;
+}
+
+.spinner__border {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 10px solid transparent;
+    border-top: 10px solid #9356DC;
+    border-bottom: 10px solid #ff79da;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    -webkit-animation: spinner__border 2s linear;
+    animation: spinner__border 2s linear;
+    visibility: hidden;
+}
+
+.spinner__center {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #99E2D0;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        visibility: visible;
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes spinner {
+    0% {
+        visibility: visible;
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes spinner__border {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes spinner__border {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+//-------------- Animation coeur -----------------
+
+/* État initial du cœur */
+
+.heart-checkbox:not(:checked)+.heart-label .solid-heart {
+    opacity: 0;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+
+/* État cliqué du cœur */
+
+.heart-checkbox:checked+.heart-label .solid-heart {
+    opacity: 1;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, #ff79da), color-stop(120%, #9356dc));
+    background: linear-gradient(#ff79da 3%, #9356dc 120%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+
+/* Masquer l'icône régulière lorsque le cœur est cliqué */
+
+.heart-checkbox:checked+.heart-label .fa-regular {
+    opacity: 0;
+}
+
+//----------Animation apparition du menu -------------
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes effet-opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes apparition {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
